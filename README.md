@@ -2,7 +2,7 @@
 
 ### Para que server
 
-Disponibilizar  endpoint para que  simular a compra de um produto.
+Disponibilizar um endpoint para que  simular a compra de um produto.
 O serviço retornar uma lista de parcelas. Quando a parcela é superior a 6 (seis), é atribuido o juros de acordo com a taxa selic.
  
 ### Tecnologia utilizada
