@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.micro.service.vo.Parcela;
@@ -12,8 +14,11 @@ import com.micro.service.vo.Requisicao;
 @Service
 public class CalculoSemJurosRule {
 	
+	Logger LOG = LoggerFactory.getLogger(CalculoSemJurosRule.class);
 	
 	public List<Parcela> calular(Requisicao requisicao){
+		
+		LOG.info("Calculando Parcela sem juros");
 		
 		List<Parcela> parcelas = new ArrayList<Parcela>();
 		
@@ -22,6 +27,8 @@ public class CalculoSemJurosRule {
 		for(int i = 1; i <= requisicao.getCondicaoPagamento().getQtdeParcelas(); i++) {
 			parcelas.add(new Parcela(i, valorParcela, 0.0));
 		}
+		
+		LOG.info("Parcela sem juros realizada com sucesso");
 		
 		return parcelas;
 	}

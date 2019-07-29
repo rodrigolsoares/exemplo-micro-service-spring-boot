@@ -5,6 +5,8 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.micro.service.vo.Parcela;
@@ -13,8 +15,11 @@ import com.micro.service.vo.Requisicao;
 @Service
 public class CalculoComJurosRule {
 	
+	Logger LOG = LoggerFactory.getLogger(CalculoComJurosRule.class);
 	
 	public List<Parcela> calular(Requisicao requisicao, double taxaSelic){
+		
+		LOG.info("Calculando Parcela com juros");
 		
 		List<Parcela> parcelas = new ArrayList<Parcela>();
 
@@ -24,6 +29,8 @@ public class CalculoComJurosRule {
 		for(int i = 1; i <= requisicao.getCondicaoPagamento().getQtdeParcelas(); i++) {
 			parcelas.add(new Parcela(i, valorParcela, taxaSelic));
 		}
+		
+		LOG.info("Parcela com juros realizada com sucesso");
 		
 		return parcelas;
 	}

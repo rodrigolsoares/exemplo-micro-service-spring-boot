@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
@@ -17,17 +19,23 @@ import com.micro.service.vo.BancoCentral;
 @Service
 public class BancoCentralRule {
 	
+	Logger LOG = LoggerFactory.getLogger(BancoCentralRule.class);
+	
 	@Value("${url.bc.taxa.selic}")
 	private String endpoint;
 	
 	public List<BancoCentral> getSelic() {
+		
+		LOG.info("Realizando a consulta da selic no BC");
 		
 		String uri = endpoint + this.montaParam(); 
 		RestTemplate restTemplate = new RestTemplate();
 		
 		ResponseEntity<List<BancoCentral>> result = 
 		restTemplate.exchange(uri,HttpMethod.GET, null, new ParameterizedTypeReference<List<BancoCentral>>(){});
-				  
+		
+		LOG.info("Consulta BC realizada com sucesso");
+		
 		return result.getBody();
 	}
 	

@@ -2,7 +2,7 @@ package com.micro.service.vo;
 
 import java.io.Serializable;
 
-public class Error implements Serializable{
+public class Errors implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -11,9 +11,9 @@ public class Error implements Serializable{
 	private Long timeStamp;
 	
 	
-	public Error(){}
+	public Errors(){}
 	
-	public Error(Integer status, String msg, Long timeStamp) {
+	public Errors(Integer status, String msg, Long timeStamp) {
 		super();
 		this.status = status;
 		this.msg = msg;

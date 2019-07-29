@@ -4,6 +4,8 @@ package com.micro.service.rule;
 import java.math.BigDecimal;
 
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.micro.service.exception.ParametroInvalidoException;
@@ -14,8 +16,11 @@ import com.micro.service.vo.Requisicao;
 @Service
 public class ValidaParametrosRule {
 	
-
+	Logger LOG = LoggerFactory.getLogger(ValidaParametrosRule.class);
+	
 	public void validar(Requisicao requisicao) {
+		
+		LOG.info("Validando parametros de entrada");
 		
 		if(requisicao.getProduto() == null) {
 			throw new ParametroInvalidoException("Objeto " + Produto.class.getName() + " não encontrado !");
