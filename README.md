@@ -2,11 +2,12 @@
 
 ### Para que server
 
-Calcula o valor de parcela de um produto. Para compras com mais de 6x parcelas, e acrescentado juros de acordo com a taxa selic do dia.
+Disponibilizar  endpoint para que  simular a compra de um produto.
+O serviço retornar uma lista de parcelas. Quando a parcela é superior a 6 (seis), é atribuido o juros de acordo com a taxa selic.
  
 ### Tecnologia utilizada
 
-* Java *
+* Java
 * Spring boot
 * Swagger
 * Maven
