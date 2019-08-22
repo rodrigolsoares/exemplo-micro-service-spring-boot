@@ -9,7 +9,7 @@ O serviço retornar uma lista de parcelas. Quando a parcela é superior a 6 (sei
 
 * Java
 * Spring boot
-* Swagger
+* Swagger 2
 * Maven
 * Junit
 
@@ -84,7 +84,7 @@ http://localhost:8080/swagger-ui.html
     "taxaJurosAoMes": 0.02462
   },
   {
-    "numeroParcela": 10,
+    "numeroParcela": 10,git clone https://github.com/rodrigolsoares/exemplo-micro-service-spring-boot.git
     "valor": 1657.96,
     "taxaJurosAoMes": 0.02462
   }
